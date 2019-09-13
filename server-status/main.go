@@ -1,18 +1,22 @@
 package main
 
 import (
+	"./configs"
+	"./router"
 	"log"
 	"net/http"
-
-	"./router"
 )
 
+var config configs.Conf
+
 func main() {
+	config.GetConf()
+
 	route := router.LoadRoutes()
 
-	//TODO handle config through json
+	//TODO handle configs through json
 	server := &http.Server{
-		Addr:    "0.0.0.0:8080",
+		Addr:    config.ServerHost + ":" + config.ServerPort,
 		Handler: route,
 	}
 	log.Fatal(server.ListenAndServe())

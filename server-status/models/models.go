@@ -1,10 +1,17 @@
 package models
 
+type Host struct {
+	Hostname string
+}
+
 type Server struct {
-	Address  string
-	SslGrade string
-	Country  string
-	Owner    string
+	Address   string
+	SslGrade  string
+	Country   string
+	Owner     string
+	Host      string
+	Checksum  string
+	TimeStamp string
 }
 
 type HostInfo struct {
@@ -14,7 +21,9 @@ type HostInfo struct {
 	Logo             string
 	Title            string
 	IsDown           bool
+	CheckSum         string
 	Servers          []Server
+	Host             Host
 }
 
 type Response struct {

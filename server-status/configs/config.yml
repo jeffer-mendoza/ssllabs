@@ -1,0 +1,6 @@
+host: "localhost"
+user: "admin"
+port: ""
+name: "ssllabs"
+serveport: "8081"
+serverhost: "0.0.0.0"
